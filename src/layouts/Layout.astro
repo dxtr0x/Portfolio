@@ -1,0 +1,19 @@
+---
+import '../styles/global.css';
+const {Title = "DXTR0X - Software Engineer"} = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{Title}</title>
+    </head>
+    <body class="grid bg-black justify-center isolate bg-black-900 px-8 py-4 sm:py-4 lg:px-8">
+        <slot/>
+    </body>
+</html>

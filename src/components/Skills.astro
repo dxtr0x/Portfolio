@@ -1,0 +1,35 @@
+---
+interface Skill {
+  logo: string;
+  skill: string;
+  description: string;
+}
+
+const isSkills: Skill[] = [
+  { logo: "./c.png", skill: "C", description: "Embedded Systems & Operating Systems" },
+  { logo: "./c++.png", skill: "C++", description: "Object-Oriented Programming and System Software" },
+  { logo: "./docker.png", skill: "Docker", description: "Containers and DevOps" },
+  { logo: "./git.png", skill: "Git", description: "Version Control" },
+  { logo: "./github.png", skill: "GitHub", description: "Code Hosting and Collaboration" },
+  { logo: "./java.png", skill: "Java", description: "Object-Oriented Programming and Backend Development" },
+  { logo: "./julia.png", skill: "Julia", description: "High-Performance Numerical Computing" },
+  { logo: "./linux.png", skill: "Linux", description: "Operating System and Command Line Skills" },
+  { logo: "./lua.png", skill: "Lua", description: "Scripting and Embedded Systems" },
+  { logo: "./markdown.png", skill: "Markdown", description: "Markdown Syntax for Documentation" },
+  { logo: "./python.png", skill: "Python", description: "General Purpose Programming and Data Science" },
+  { logo: "./rust.png", skill: "Rust", description: "Memory Safety and Systems Programming" },
+]; 
+
+import Card from "./ui/Card.astro";
+---
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4 overflow-y-auto">
+    {isSkills.map((element) => (
+      <div>
+        <Card
+            picture={element.logo}
+            skill={element.skill}
+            description={element.description}
+        />
+      </div>
+    ))}
+</div>
