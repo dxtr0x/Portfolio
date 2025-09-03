@@ -1,22 +1,32 @@
 ---
 interface Stat{
     num : number ,
-    name : string
+    name : string,
+    path : string
 }
 
 const statistic : Stat[] = [
-    { num : 1 , name : "Project"},
-    {num : 2, name: "Public repositories"},
-    {num : 0, name: "Open source projects"}
+    { num : 1 , name : "Project" , path : "./project.svg"},
+    {num : 2, name: "Public repositories" , path: "./repo.svg"},
+    {num : 0, name: "Open source projects" , path: "./opensource.svg"}
 ]
 ---
-<div class=" box-content p-4 rounded-lg md:p-8" id="stats" role="tabpanel" aria-labelledby="stats-tab">
-    <dl class="grid grid-cols-3 gap-4">
-        {statistic.map((element)=>(
-        <div class="flex flex-col items-center justify-center">
-            <dt class=" text-white sb-2 text-3xl font-extrabold">{element.num}</dt>
-            <dd class="text-white">{element.name}</dd>
+<main class="max-h-screen">
+    <div class= "py-8 sm:py-24 text-center max-h-screen">
+        <div class="py-16">
+            <h1 class="text-3xl font-semibold tracking-tight text-white sm:text-5xl">All my Workstation</h1>
+            <h3 class="text-base/8 text-gray-400 p-4">I'm not the best, but I will do my best</h3>
         </div>
-        ))}
-    </dl>
-</div>
+        <div class="mx-auto max-w-7xl p-6 lg:px-8">
+          <dl class="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
+              {statistic.map((element)=>(
+                  <div>
+                      <dt class="flex justify-center py-1"><img class="w-auto h-12 flex-shrink-0 object-cover rounded" src={element.path} /></dt>
+                      <dd class="text-base/7 text-gray-400 py-4">{element.name}</dd>
+                      <dd class="order-first text-3xl font-semibold tracking-tight text-white sm:text-5xl py-1">{element.num}</dd> 
+                  </div> 
+              ))}
+          </dl>
+        </div>
+    </div>
+</main>
