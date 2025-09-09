@@ -1,4 +1,5 @@
 ---
+import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 const {Title = "DXTR0X - Software Engineer"} = Astro.props;
 ---
@@ -15,5 +16,8 @@ const {Title = "DXTR0X - Software Engineer"} = Astro.props;
     </head>
     <body class="grid bg-black justify-center isolate bg-black-900 px-8 py-4 sm:py-4 lg:px-8">
         <slot class="grid"/>
+        <footer>
+            <Footer/>
+        </footer>
     </body>
 </html>
