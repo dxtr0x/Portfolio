@@ -1,0 +1,90 @@
+---
+import { Phone ,Mail , type Icon as IconType} from "@lucide/astro";
+export interface Contact_t{
+    icon : typeof IconType,
+    text : string
+};
+
+const contacts:Contact_t[] = [
+    {
+        icon : Phone ,
+        text : "+(213) 111 11 11 11"
+    },
+    {
+        icon : Mail,
+        text : "dextr_x.io@proton.me"
+    }];
+
+---
+<div class="flex flex-col w-full min-h-screen justify-center items-center">
+  <div class="py-16 text-center">
+    <h1 class="text-3xl font-semibold tracking-tight text-white sm:text-5xl">Contact Me</h1>
+    <h3 class="text-base/8 text-gray-400 p-4">We're here to assist you whenever you need us.</h3>
+  </div>
+  <div class="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-white w-full max-w-4xl p-8 sm:p-12 rounded-xl shadow-lg text-white overflow-hidden">
+    <!-- Left -->
+    <div class="flex flex-col space-y-8 justify-between">
+      <!-- Left top -->
+      <div class="text-black">
+        <h1 class="font-bold text-4xl tracking-wide">Get in Touch</h1>
+        <p class="pt-2 text-white-100 text-sm">Feel free to reach out with any questions or inquiries. I'm here to help you succeed.</p>
+      </div>
+      <!-- left middle -->
+
+      <div class="flex flex-col space-y-6">
+        { contacts.map((contact) => (
+          <div class="inline-flex space-x-2 items-center text-black">
+            <contact.icon />
+            <span>{contact.text}</span>
+          </div>
+        ))}
+
+      </div>
+      <!-- left bottom -->
+      <div class="flex space-x-4 w-full">
+
+      </div>
+    </div>
+
+    <!-- Right -->
+    <div class="relative">
+      <div class="relative z-10 bg-black rounded-xl shadow-lg p-8 text-white md:w-80">
+        <form action="" class="flex flex-col space-y-4">
+          <div>
+            <label for="name" class="text-sm">Your Name</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="Your Name"
+              class="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-gray-300"
+            />
+          </div>
+          <div>
+            <label for="email" class="text-sm">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Email Address"
+              class="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-gray-300"
+            />
+          </div>
+          <div>
+            <label for="message" class="text-sm">Message</label>
+            <textarea
+              id="message"
+              rows="4"
+              placeholder="Your Message"
+              class="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-gray-300"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="self-end rounded-full outline ring-2 p-4 mx-4 inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white hover:bg-white hover:text-gray-700 duration-150"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
